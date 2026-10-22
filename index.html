@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #333333;
+  display: flex;
+	}
+
+ul li a {
+  display: block;
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 16px;
+  margin: 4px 2px; 
+	}
+	
+ul li a:hover {
+  transform: scale(1.1);
+  background-color: SteelBlue;
+  box-shadow: 0 0 10px SteelBlue,
+              0 0 20px SteelBlue,
+              0 0 40px SteelBlue,
+              0 0 80px SteelBlue;
+	}
+	
+// <weight>: Use a value from 100 to 800
+// <uniquifier>: Use a unique and descriptive class name
+
+.jetbrains-mono-<uniquifier> {
+  font-family: "JetBrains Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
+
+.container {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 16px; 
+  padding: 40px; 
+  margin: 0 auto; 
+  align-items: center;
+
+}
+
+body {
+  margin: 0;
+  font-family: Inter, sans-serif;
+  background: #0b0f1a;
+  color: white;
+}
+    
+h1 {
+  color: steelblue;
+  text-align: center;
+  margin-top: 40px;
+  font-size: 100px;
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 800;
+  // text-shadow: 0 0 10px SteelBlue,
+     // 0 0 20px SteelBlue,
+     // 0 0 40px SteelBlue,
+     // 0 0 80px SteelBlue;
+
+}
+    
+.button {
+  border: none;
+  color: #0b0f1a;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.3s;
+  cursor: pointer;
+  min-width: 140px;
+  border-radius: 16px;
+  background-color: #0b0f1a;
+  color: white;
+  border: 2px solid SteelBlue;
+}
+
+
+.button:hover {
+  transform: translateY(-3px);
+  background-color: SteelBlue;
+  color: white;
+  box-shadow: 0 0 10px SteelBlue,
+              0 0 20px SteelBlue,
+              0 0 40px SteelBlue,
+              0 0 80px SteelBlue;
+}
+
+</style>
+    
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+<ul>
+  <li><a href="index.html">Home</a></li>
+  <li><a href="games.html">Games</a></li>
+  <li><a href="#contact">Contact</a></li>
+  <li><a href="#about">About</a></li>
+</ul>
+
+<h1>Reyfly</h1>
+    
+<div class="container">
+    
+    <a class="button " href="Addition">Addition</a>
+    <a class="button " href="Subtraction">Subtraction</a>
+    <a class="button " href="Multiplication">Multiplication</a>
+    <a class="button " href="Division">Division</a>
+    <a class="button " href="Powers">Powers</a>
+    <a class="button " href="Algebra">Algebra</a>
+    <a class="button " href="Angles">Angles</a>
+    <a class="button " href="Factors">Factors</a>
+   
+</div>
+    
+</body>
+</html>
