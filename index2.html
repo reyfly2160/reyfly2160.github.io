@@ -1,417 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reyfly | Level Up</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;800&display=swap" rel="stylesheet">
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
 
-  <style>
-    :root {
-      --bg: #080c14;
-      --panel: #101827;
-      --blue: #5b9dff;
-      --blue-light: #91c2ff;
-      --text: #f0f5ff;
-      --muted: #8997ad;
-      --border: rgba(111, 163, 255, 0.2);
-    }
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+input[type=submit]:hover {
+  background-color: #45a049;
+}
 
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      min-height: 100vh;
-      background:
-        radial-gradient(ellipse at 50% 25%, rgba(38, 91, 173, 0.18), transparent 45%),
-        var(--bg);
-      color: var(--text);
-      font-family: "Inter", sans-serif;
-      overflow-x: hidden;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    /* Navigation */
-
-    .navbar {
-      width: min(1120px, calc(100% - 48px));
-      margin: 24px auto 0;
-      padding: 16px 22px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      background: rgba(16, 24, 39, 0.75);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      backdrop-filter: blur(16px);
-    }
-
-    .brand {
-      font-family: "JetBrains Mono", monospace;
-      font-size: 24px;
-      font-weight: 800;
-      letter-spacing: -2px;
-    }
-
-    .brand span {
-      color: var(--blue);
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .nav-links a {
-      padding: 10px 15px;
-      border-radius: 10px;
-      color: var(--muted);
-      font-size: 14px;
-      font-weight: 600;
-      transition: 0.25s ease;
-    }
-
-    .nav-links a:hover {
-      color: var(--text);
-      background: rgba(91, 157, 255, 0.1);
-    }
-
-    .nav-links .nav-cta {
-      color: var(--text);
-      border: 1px solid var(--border);
-    }
-
-    .nav-links .nav-cta:hover {
-      background: var(--blue);
-      color: #080c14;
-    }
-
-    /* Hero section */
-
-    .hero {
-      width: min(1000px, calc(100% - 40px));
-      min-height: 72vh;
-      margin: auto;
-      padding: 110px 0 90px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 9px 15px;
-      border: 1px solid var(--border);
-      border-radius: 100px;
-      background: rgba(91, 157, 255, 0.06);
-      color: var(--blue-light);
-      font-family: "JetBrains Mono", monospace;
-      font-size: 12px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      animation: fadeUp 0.7s ease both;
-    }
-
-    .status-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #68e6a2;
-      box-shadow: 0 0 12px #68e6a2;
-    }
-
-    h1 {
-      margin-top: 30px;
-      font-family: "JetBrains Mono", monospace;
-      font-size: clamp(64px, 12vw, 120px);
-      font-weight: 800;
-      line-height: 1.1;
-      letter-spacing: -8px;
-      background: linear-gradient(
-        135deg,
-        #ffffff 15%,
-        #a6ccff 50%,
-        #579aff 85%
-      );
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      filter: drop-shadow(0 0 35px rgba(91, 157, 255, 0.15));
-      animation: fadeUp 0.8s ease both;
-    }
-
-    .hero p {
-      max-width: 550px;
-      margin-top: 24px;
-      color: var(--muted);
-      font-size: 17px;
-      line-height: 1.8;
-      animation: fadeUp 1s ease both;
-    }
-
-    .hero-actions {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 36px;
-      animation: fadeUp 1.1s ease both;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      min-height: 52px;
-      padding: 0 25px;
-      border: 1px solid var(--border);
-      border-radius: 13px;
-      font-size: 14px;
-      font-weight: 700;
-      transition: transform 0.25s, background 0.25s,
-                  border-color 0.25s, box-shadow 0.25s;
-    }
-
-    .button:hover {
-      transform: translateY(-3px);
-    }
-
-    .button-primary {
-      background: var(--blue);
-      border-color: var(--blue);
-      color: #080c14;
-      box-shadow: 0 0 25px rgba(91, 157, 255, 0.18);
-    }
-
-    .button-primary:hover {
-      background: var(--blue-light);
-      box-shadow: 0 0 30px rgba(91, 157, 255, 0.35);
-    }
-
-    .button-secondary {
-      background: rgba(255, 255, 255, 0.025);
-      color: var(--text);
-    }
-
-    .button-secondary:hover {
-      border-color: var(--blue);
-      background: rgba(91, 157, 255, 0.08);
-    }
-
-    /* Feature cards */
-
-    .features {
-      width: min(1000px, calc(100% - 40px));
-      margin: 0 auto 90px;
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .feature-card {
-      padding: 27px;
-      background: linear-gradient(
-        145deg,
-        rgba(20, 32, 51, 0.9),
-        rgba(12, 18, 30, 0.8)
-      );
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      transition: 0.3s ease;
-    }
-
-    .feature-card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(91, 157, 255, 0.55);
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
-    }
-
-    .feature-icon {
-      display: grid;
-      place-items: center;
-      width: 44px;
-      height: 44px;
-      margin-bottom: 20px;
-      border-radius: 12px;
-      background: rgba(91, 157, 255, 0.12);
-      color: var(--blue-light);
-      font-size: 22px;
-    }
-
-    .feature-card h2 {
-      margin-bottom: 10px;
-      font-size: 17px;
-    }
-
-    .feature-card p {
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.7;
-    }
-
-    /* Footer */
-
-    footer {
-      padding: 25px 20px;
-      border-top: 1px solid rgba(111, 163, 255, 0.12);
-      color: var(--muted);
-      text-align: center;
-      font-size: 12px;
-    }
-
-    footer span {
-      color: var(--blue);
-    }
-
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(18px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @media (max-width: 650px) {
-      .navbar {
-        width: calc(100% - 28px);
-        margin-top: 14px;
-        padding: 15px;
-        flex-direction: column;
-        gap: 12px;
-      }
-
-      .nav-links {
-        width: 100%;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 2px;
-      }
-
-      .nav-links a {
-        padding: 9px 11px;
-        font-size: 12px;
-      }
-
-      .hero {
-        min-height: auto;
-        padding: 100px 0 75px;
-      }
-
-      h1 {
-        letter-spacing: -4px;
-      }
-
-      .hero p {
-        font-size: 15px;
-      }
-
-      .features {
-        grid-template-columns: 1fr;
-        gap: 12px;
-        margin-bottom: 60px;
-      }
-
-      .feature-card {
-        padding: 23px;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-      }
-    }
-  </style>
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+</style>
 </head>
-
 <body>
 
-  <nav class="navbar">
-    <a href="#" class="brand">Rey<span>fly</span></a>
+<h3>Contact Form</h3>
+<div class="container">
+  <form action="https://formspree.io/f/mqppdgka"  method="POST">
 
-    <div class="nav-links">
-      <a href="#home">Home</a>
-      <a href="#games">Games</a>
-      <a href="#about">About</a>
-      <a href="#contact" class="nav-cta">Contact ↗</a>
-    </div>
-  </nav>
+    <input type="text" id="fname" name="firstname" placeholder="Your name.." required>
 
-  <main>
-    <section class="hero" id="home">
-      <div class="eyebrow">
-        <span class="status-dot"></span>
-        Welcome to Reyfly
-      </div>
+    <input type="text" id="email" name="email" placeholder="Your email" required>
 
-      <h1>Reyfly<span style="color:#5b9dff">.</span></h1>
-
-      <p>
-        A space for games, creativity, and cool projects.
-        Explore what I'm building and discover what's next.
-      </p>
-
-      <div class="hero-actions">
-        <a href="#games" class="button button-primary">
-          Explore Games <span>↗</span>
-        </a>
-
-        <a href="#about" class="button button-secondary">
-          Discover Reyfly
-        </a>
-      </div>
-    </section>
-
-    <section class="features" id="games">
-      <article class="feature-card">
-        <div class="feature-icon">⌘</div>
-        <h2>Games</h2>
-        <p>Discover games, experiments, and interactive projects. More adventures await.</p>
-      </article>
-
-      <article class="feature-card" id="about">
-        <div class="feature-icon">✳</div>
-        <h2>About Reyfly</h2>
-        <p>A place to experiment, create, and bring new ideas to life.</p>
-      </article>
-
-      <article class="feature-card" id="contact">
-        <div class="feature-icon">↗</div>
-        <h2>Get in Touch</h2>
-        <p>Have an idea or want to connect? Stay tuned for contact details.</p>
-      </article>
-    </section>
-  </main>
-
-  <footer>
-    Crafted with <span>♥</span> by Reyfly · © 2026
-  </footer>
+    <textarea id="subject" name="subject" placeholder="Write something.." required></textarea>
+  
+    <input type="submit" value="Submit">
+  </form>
+</div>
 
 </body>
 </html>
