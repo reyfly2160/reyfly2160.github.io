@@ -1,9 +1,17 @@
+
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://sitemaps.org">
-  <url>
-    <loc>https://reyfly.xyz</loc>
-    <lastmod>2026-10-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <url>
+        <loc>https://reyfly.xyz/</loc>
+    </url>
+
+    <url>
+        <loc>https://reyfly.xyz/Projects/</loc>
+    </url>
+
+    <url>
+        <loc>https://reyfly.xyz/Games/</loc>
+    </url>
+
 </urlset>
